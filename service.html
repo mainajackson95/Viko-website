@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Viko service page for Reddit marketing and AI SEO solutions.">
+    <title>Viko Service</title>
+    <link rel="icon" href="favicon-96x96.png" type="image/png" sizes="96x96">
+    <link rel="icon" href="favicon-48x48.png" type="image/png" sizes="48x48">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#f6f4ef">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">
+                    <h1>Viko</h1>
+                    <div class="tagline"><i class="fab fa-reddit-alien"></i> agency</div>
+                </div>
+            </a>
+            <nav class="primary-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#capabilities">Services</a>
+                <a href="index.html#services">Case studies</a>
+                <a href="blog.html">Insights</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://wa.me/254726979973?text=Hi%20Viko%2C%20I%20want%20to%20grow%20on%20Reddit" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+                <a href="index.html#booking" class="btn btn-primary"><i class="far fa-calendar-check"></i> Book a call</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 id="service-title">Loading service…</h1>
+                <p id="service-lead">Discover how Viko builds Reddit momentum with a service tailored to your growth plan.</p>
+            </div>
+        </section>
+
+        <section class="container service-panel">
+            <div class="service-meta" id="service-meta"></div>
+            <div class="service-content">
+                <h2 id="service-heading"></h2>
+                <p id="service-description"></p>
+                <ul id="service-list"></ul>
+                <div class="service-image" id="service-image"></div>
+            </div>
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="index.html#booking" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book a strategy call</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const services = {
+            reddit: {
+                title: 'Reddit growth',
+                lead: 'Launch sustained Reddit authority with high-karma account strategies, community-first posting, and measurable engagement.',
+                heading: 'Reddit growth that earns attention and trust',
+                description: 'We scale your visibility the right way: by creating posts and comments that deliver real value, gain karma, and build credibility inside relevant subreddits.',
+                meta: ['10k+ karma accounts', 'Organic community growth', 'Real post performance'],
+                items: [
+                    'Targeted subreddit research and content mapping',
+                    'High-value engagement from trusted accounts',
+                    'Monthly reporting with community performance metrics',
+                ],
+                image: 'case-study-1.png'
+            },
+            'ai-seo': {
+                title: 'AI & LLM SEO',
+                lead: 'Build Reddit content that works for people and AI search engines alike, increasing discoverability across ChatGPT, Google, and LLM platforms.',
+                heading: 'AI-optimized Reddit content for next-gen search',
+                description: 'We structure posts and comments so AI systems can understand your brand narrative, making your content more likely to be surfaced in LLM answers and search snippets.',
+                meta: ['LLM-ready content', 'AI search visibility', 'Structured engagement'],
+                items: [
+                    'Content designed for AI indexing',
+                    'Keyword and intent alignment for Reddit',
+                    'Optimization for both community and search',
+                ],
+                image: 'case-study-6.png'
+            },
+            analytics: {
+                title: 'Analytics & insights',
+                lead: 'Measure what matters with campaign tracking, sentiment analysis, and performance insights that keep your Reddit strategy data-driven.',
+                heading: 'Analytics that turn Reddit activity into real business intelligence',
+                description: 'We track engagement, sentiment, and conversion signals so you can make smarter decisions and improve community returns over time.',
+                meta: ['Sentiment tracking', 'Trend forecasting', 'ROI reporting'],
+                items: [
+                    'Weekly performance dashboards',
+                    'Engagement and conversion analysis',
+                    'Strategy adjustments based on real data',
+                ],
+                image: 'case-study-5-part-1.png'
+            },
+            reputation: {
+                title: 'Reputation management',
+                lead: 'Protect your brand on Reddit with fast response plans, reputation repair, and community trust-building measures.',
+                heading: 'Reputation management for the Reddit era',
+                description: 'We handle difficult conversations thoughtfully, reduce negative visibility, and restore trust with transparent, community-friendly outreach.',
+                meta: ['Crisis response', 'Brand recovery', 'Trust building'],
+                items: [
+                    'Reputation audit and risk assessment',
+                    'Response scripting and community support',
+                    'Monitoring for emerging issues',
+                ],
+                image: 'case-study-4-section-1.png'
+            },
+            content: {
+                title: 'Content strategy',
+                lead: 'Create Reddit-first content that resonates with communities and builds a consistent pipeline of engagement.',
+                heading: 'Content strategy that converts Reddit activity into qualified leads',
+                description: 'Our content plans are designed to keep your brand visible, helpful, and aligned with the natural flow of each subreddit.',
+                meta: ['Community-first content', 'Lead-focused stories', 'Long-term visibility'],
+                items: [
+                    'Content calendars for Reddit communities',
+                    'Message frameworks for subtle brand positioning',
+                    'Ongoing content performance reviews',
+                ],
+                image: 'case-study-2-section-1.png'
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const topic = params.get('topic');
+        const service = services[topic] || services.reddit;
+        const imageSizes = {
+            'case-study-1.png': [936, 408],
+            'case-study-2-section-1.png': [792, 840],
+            'case-study-4-section-1.png': [554, 1350],
+            'case-study-5-part-1.png': [744, 696],
+            'case-study-6.png': [936, 474],
+        };
+
+        function escapeAttribute(value) {
+            return value.replace(/[&<>"']/g, char => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;',
+            })[char]);
+        }
+
+        function optimizedImage(src, alt) {
+            const [width, height] = imageSizes[src] || [];
+            const dimensions = width && height ? ` width="${width}" height="${height}"` : '';
+            const avifSrc = src.replace(/\.png$/, '.avif');
+
+            return `<picture>
+                <source srcset="${avifSrc}" type="image/avif">
+                <img src="${src}"${dimensions} alt="${escapeAttribute(alt)}" loading="lazy" decoding="async">
+            </picture>`;
+        }
+
+        document.getElementById('service-title').textContent = service.title;
+        document.getElementById('service-lead').textContent = service.lead;
+        document.getElementById('service-heading').textContent = service.heading;
+        document.getElementById('service-description').textContent = service.description;
+        document.getElementById('service-meta').innerHTML = service.meta.map(item => `<span>${item}</span>`).join('');
+        document.getElementById('service-list').innerHTML = service.items.map(item => `<li>${item}</li>`).join('');
+        document.getElementById('service-image').innerHTML = optimizedImage(service.image, service.title);
+    </script>
+</body>
+
+</html>
