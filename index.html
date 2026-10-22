@@ -122,22 +122,22 @@
                                 <div class="package-count">2</div>
                             </div>
                             <div class="package-preview-list">
-                                <div class="package-preview-item">
+                                <a class="package-preview-item" href="package.html?id=ads" aria-label="Reddit Ads Accelerator - full details">
                                     <div class="package-preview-icon"><i class="fas fa-bullhorn"></i></div>
                                     <div>
                                         <strong>Reddit Ads Accelerator</strong>
                                         <span>Managed ads for fast traffic</span>
                                     </div>
-                                    <div class="package-preview-price">$80/wk</div>
-                                </div>
-                                <div class="package-preview-item">
+                                    <span class="package-preview-price">$80/wk</span>
+                                </a>
+                                <a class="package-preview-item" href="package.html?id=organic" aria-label="Organic Growth Engine - full details">
                                     <div class="package-preview-icon"><i class="fas fa-seedling"></i></div>
                                     <div>
                                         <strong>Organic Growth Engine</strong>
                                         <span>Posts, comments, and AI visibility</span>
                                     </div>
-                                    <div class="package-preview-price">$210/wk</div>
-                                </div>
+                                    <span class="package-preview-price">$210/wk</span>
+                                </a>
                             </div>
                             <button class="btn btn-primary" style="margin-top: 22px; width: 100%; justify-content: center;" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})"><i class="fas fa-table-columns"></i> See package details</button>
                         </div>
@@ -252,7 +252,7 @@
                             <li>Daily monitoring, bid optimization, and A/B testing</li>
                             <li>Weekly performance report and recommendations</li>
                         </ul>
-                        <button class="btn btn-outline" onclick="openPackageDetails('ads')"><i class="fas fa-circle-info"></i> View details</button>
+                        <a class="btn btn-outline" href="package.html?id=ads"><i class="fas fa-circle-info"></i> View details</a>
                     </article>
 
                     <article class="package-card featured">
@@ -269,7 +269,7 @@
                             <li>12 strategic promotional comments</li>
                             <li>Subreddit research, reputation management, and weekly reporting</li>
                         </ul>
-                        <button class="btn btn-primary" onclick="openPackageDetails('organic')"><i class="fas fa-circle-info"></i> View details</button>
+                        <a class="btn btn-primary" href="package.html?id=organic"><i class="fas fa-circle-info"></i> View details</a>
                     </article>
                 </div>
             </div>
@@ -566,22 +566,6 @@
         </footer>
     </main>
 
-    <!-- Case Study Modal -->
-    <div id="caseStudyModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeCaseStudy()">&times;</span>
-            <div id="caseStudyContent"></div>
-        </div>
-    </div>
-
-    <!-- Package Details Modal -->
-    <div id="packageModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closePackageDetails()">&times;</span>
-            <div id="packageContent"></div>
-        </div>
-    </div>
-
     <!-- Calendly Popup Modal -->
     <div id="calendlyModal" class="modal">
         <div class="modal-content" style="max-width: 900px;">
@@ -592,199 +576,12 @@
 
     <script src="https://assets.calendly.com/assets/external/widget.js"></script>
     <script>
-        // Case Study Data
-        const caseStudies = {
-            'reddit': {
-                title: 'Reddit growth',
-                subtitle: 'Case Study: SaaS Company +500% Engagement',
-                results: [
-                    '500% increase in subreddit engagement',
-                    '45k karma accumulated in 6 months',
-                    '3 posts reaching r/all',
-                    '200+ qualified leads from Reddit'
-                ],
-                description: 'A SaaS company wanted to establish authority on Reddit. We created high-karma accounts, identified niche subreddits, and built a strategic posting schedule. By focusing on genuine community engagement rather than self-promotion, we generated 200+ qualified leads.',
-                metrics: '45k karma | 3 posts on r/all | 200+ leads',
-                source: 'Real campaign data'
-            },
-            'ai-seo': {
-                title: 'AI & LLM SEO',
-                subtitle: 'Case Study: Content Indexing by ChatGPT',
-                results: [
-                    'Content indexed by ChatGPT search',
-                    'Ranked in LLM results for 15+ queries',
-                    '30% traffic increase from AI search',
-                    'Featured as authoritative source'
-                ],
-                description: 'We restructured content for next-generation AI search engines. By understanding how LLMs consume and cite information, we got our client featured in ChatGPT search results and cited as an authoritative source.',
-                metrics: '30% AI traffic | 15+ LLM rankings',
-                source: 'Live performance data'
-            },
-            'analytics': {
-                title: 'Analytics & insights',
-                subtitle: 'Case Study: Real-time Campaign Tracking',
-                results: [
-                    'Real-time sentiment analysis',
-                    'Trend predictions 2 weeks ahead',
-                    '40% improvement in content ROI',
-                    'Weekly automated reporting'
-                ],
-                description: 'We implemented comprehensive analytics for a client\'s community marketing. Using sentiment tracking and trend analysis, we identified emerging opportunities 2 weeks before competitors.',
-                metrics: '40% ROI improvement | 2-week foresight',
-                source: 'Analytics dashboard'
-            },
-            'reputation': {
-                title: 'Reputation management',
-                subtitle: 'Case Study: Rebuilding Brand Trust',
-                results: [
-                    'Negative sentiment reduced by 75%',
-                    'Brand mentions increase by 200%',
-                    'Community engagement up 300%',
-                    'Crisis resolved in 2 weeks'
-                ],
-                description: 'A tech company faced reputation issues on Reddit. We launched a strategic reputation recovery campaign, addressing concerns authentically and rebuilding community trust.',
-                metrics: '75% sentiment improvement | 300% engagement',
-                source: 'Crisis management case study'
-            },
-            'content': {
-                title: 'Content strategy',
-                subtitle: 'Case Study: Multi-Platform Content Dominance',
-                results: [
-                    'Content framework for 3 platforms',
-                    '10x increase in organic reach',
-                    '85% engagement rate',
-                    'Content library of 200+ pieces'
-                ],
-                description: 'We developed a comprehensive content strategy optimized for Reddit and LLMs. This framework created a content library that drives consistent organic traffic across all platforms.',
-                metrics: '10x reach | 85% engagement | 200+ pieces',
-                source: 'Ongoing strategy'
-            }
-        };
-
-        const packages = {
-            ads: {
-                title: 'Reddit Ads Accelerator',
-                price: '$80 / week',
-                tag: '55,000+ targeted impressions every week',
-                lead: 'Drive real results on Reddit with a fully managed advertising service. We create, launch, optimize, and monitor high-performing Reddit Ads that feel native to the platform while delivering measurable ROI.',
-                includedTitle: 'What’s included every week',
-                included: [
-                    'Creation of 1 high-impact Reddit Ad with compelling copy and professional visual creative tailored to your niche',
-                    'Precise targeting in high-intent subreddits where your ideal customers are active',
-                    'Daily monitoring, bid optimization, and A/B testing',
-                    'Real-time performance dashboard covering impressions, clicks, CTR, CPC, leads, and conversions',
-                    'Full compliance with Reddit advertising policies',
-                    'Weekly report with actionable insights and recommendations'
-                ],
-                proof: {
-                    label: 'Proof from a live campaign',
-                    title: 'Beyond the Plains Safaris — High-Performance Reddit Ads Placement & Optimization',
-                    metrics: '471,707 impressions, 10,303 clicks, 135 leads, and 66 purchases from one managed Reddit Ads campaign.',
-                    url: 'case-study.html?id=beyond-plains-ads'
-                },
-                note: 'Perfect for safari operators, SaaS companies, e-commerce brands, and service businesses ready to scale visibility and generate qualified traffic fast.',
-                cta: 'Start the Reddit Ads Accelerator'
-            },
-            organic: {
-                title: 'Organic Growth Engine',
-                price: '$210 / week',
-                tag: '12+ authentic brand mentions every week',
-                lead: 'Build authentic brand visibility on Reddit with consistent, high-quality engagement every single week. We craft strategic posts and comments that position your brand as a trusted authority while supporting long-term AI and LLM discoverability.',
-                includedTitle: 'What’s included every week',
-                included: [
-                    '6 premium organic posts placed in the most relevant high-engagement subreddits for your niche',
-                    '12 strategic promotional comments across new posts and existing high-traffic Reddit threads',
-                    '1 contextual brand mention on 5 existing high-traffic threads already ranking on Google',
-                    'Full subreddit research and content creation tailored to your audience',
-                    'Natural, experience-based storytelling that survives moderation',
-                    'Karma building, reputation management, and a weekly report covering views, upvotes, comments, sentiment, and estimated reach'
-                ],
-                note: 'Perfect for SaaS, Fintech, health and wellness, travel, and service brands looking for steady organic presence and AI-powered visibility.',
-                cta: 'Start the Organic Growth Engine'
-            }
-        };
-
-        // Close modal when clicking outside it
+        // Close the booking popup when clicking outside it
         document.addEventListener('click', function (event) {
-            const modals = [document.getElementById('caseStudyModal'),
-            document.getElementById('packageModal'),
-            document.getElementById('calendlyModal')];
-
-            modals.forEach(modal => {
-                if (event.target === modal) {
-                    modal.classList.remove('active');
-                }
-            });
+            if (event.target === document.getElementById('calendlyModal')) {
+                closeCalendly();
+            }
         });
-
-        // Case Study Functions
-        function openCaseStudy(service) {
-            const study = caseStudies[service];
-            const content = document.getElementById('caseStudyContent');
-
-            content.innerHTML = `
-                <h2 class="modal-title">${study.title}</h2>
-                <div class="modal-meta">${study.source}</div>
-                <div class="modal-body">
-                    <h3 style="color: white; margin: 30px 0 20px 0; font-size: 24px;">${study.subtitle}</h3>
-                    <p>${study.description}</p>
-                    
-                    <h4 style="color: white; margin: 30px 0 15px 0; font-size: 18px;">Key Results:</h4>
-                    <ul style="margin-left: 20px; margin-bottom: 30px;">
-                        ${study.results.map(r => `<li style="margin-bottom: 10px;">• ${r}</li>`).join('')}
-                    </ul>
-                    
-                    <div style="background: rgba(255, 69, 0, 0.1); padding: 20px; border-radius: 16px; margin-top: 30px; border: 1px solid rgba(255, 69, 0, 0.3);">
-                        <p style="font-weight: 600; color: var(--viko-orange); margin-bottom: 10px;">📊 Performance Metrics</p>
-                        <p>${study.metrics}</p>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('caseStudyModal').classList.add('active');
-        }
-
-        function closeCaseStudy() {
-            document.getElementById('caseStudyModal').classList.remove('active');
-        }
-
-        function openPackageDetails(packageKey = 'ads') {
-            const selectedPackage = packages[packageKey] || packages.ads;
-            const proofBlock = selectedPackage.proof ? `
-                        <div style="background: rgba(255, 69, 0, 0.1); border: 1px solid rgba(255, 69, 0, 0.28); border-radius: 18px; padding: 20px; margin: 0 0 24px;">
-                            <p style="color: var(--viko-orange); font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;">${selectedPackage.proof.label}</p>
-                            <p style="margin-bottom: 10px;"><strong>${selectedPackage.proof.title}</strong></p>
-                            <p style="margin-bottom: 14px;">${selectedPackage.proof.metrics}</p>
-                            <a href="${selectedPackage.proof.url}" style="color: var(--viko-orange); font-weight: 700; text-decoration: none;">Read the full case study →</a>
-                        </div>
-            ` : '';
-            const content = document.getElementById('packageContent');
-            content.innerHTML = `
-                <div style="padding: 40px 35px;">
-                    <h2 class="modal-title">${selectedPackage.title}</h2>
-                    <div class="modal-meta"><span>${selectedPackage.price}</span><span>${selectedPackage.tag}</span></div>
-                    <div class="modal-body">
-                        <p><strong>${selectedPackage.tag}</strong></p>
-                        <p>${selectedPackage.lead}</p>
-                        <p><strong>${selectedPackage.includedTitle}:</strong></p>
-                        <ul style="list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 12px;">
-                            ${selectedPackage.included.map(item => `<li style="position: relative; padding-left: 26px;"><span style="position: absolute; left: 0; color: var(--viko-orange); font-weight: 700;">✓</span>${item}</li>`).join('')}
-                        </ul>
-                        ${proofBlock}
-                        <p>All work is 100% manual using our network of high-karma accounts. No bots. No spam. Just sustainable growth and long-term credibility.</p>
-                        <p>${selectedPackage.note}</p>
-                        <p>Ready to make your brand visible where your customers actually hang out? Choose the <strong>${selectedPackage.title}</strong> and start building momentum.</p>
-                        <p><strong>Viko — Reddit Marketing & AI SEO Experts</strong><br>
-                        <a href="mailto:info@redditexperts.com" style="color: var(--viko-orange); text-decoration: underline;">Email Us</a> or <button class="btn btn-primary" style="margin-top: 12px; display: inline-flex;" onclick="closePackageDetails(); document.getElementById('booking').scrollIntoView({behavior:'smooth'})">${selectedPackage.cta}</button></p>
-                    </div>
-                </div>
-            `;
-            document.getElementById('packageModal').classList.add('active');
-        }
-
-        function closePackageDetails() {
-            document.getElementById('packageModal').classList.remove('active');
-        }
 
         // Calendly Functions
         function openCalendly() {

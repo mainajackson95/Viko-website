@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Viko growth package details - Reddit Ads Accelerator and Organic Growth Engine, fully managed Reddit marketing packages">
+    <title>Viko Package Details</title>
+    <link rel="icon" href="favicon-96x96.png" type="image/png" sizes="96x96">
+    <link rel="icon" href="favicon-48x48.png" type="image/png" sizes="48x48">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#f6f4ef">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">
+                    <h1>Viko</h1>
+                    <div class="tagline"><i class="fab fa-reddit-alien"></i> agency</div>
+                </div>
+            </a>
+            <nav class="primary-nav" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#capabilities">Services</a>
+                <a href="index.html#services">Case studies</a>
+                <a href="blog.html">Insights</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://wa.me/254726979973?text=Hi%20Viko%2C%20I%20want%20to%20grow%20on%20Reddit" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+                <a href="index.html#booking" class="btn btn-primary"><i class="far fa-calendar-check"></i> Book a call</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 id="package-title">Loading package…</h1>
+                <p id="package-lead">Read the full description, what is included every week, and the proof behind it.</p>
+            </div>
+        </section>
+
+        <section class="container case-panel">
+            <div class="case-meta" id="package-meta"></div>
+            <div class="case-content" id="package-content"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Viko Marketing Agency. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Package data comes from packages.js — edit package details there. -->
+    <script src="packages.js"></script>
+    <script>
+        function renderPackage(key) {
+            const p = PACKAGES[key] || PACKAGES.ads;
+            const other = Object.values(PACKAGES).find(item => item.id !== p.id);
+
+            const otherLink = other ? `
+                <p style="margin: 26px 0 0;">Prefer something else? Compare the <a href="package.html?id=${other.id}">${other.title}</a>, or <a href="index.html#packages">see all packages side by side</a>.</p>
+            ` : '';
+
+            const proofBlock = p.proof ? `
+                <div style="border: 1px solid var(--line-strong); border-left: 3px solid var(--accent); background: var(--paper-deep); padding: 18px 22px; margin: 26px 0 20px;">
+                    <p style="color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 8px;">${p.proof.label}</p>
+                    <p style="margin: 0 0 8px;"><strong>${p.proof.title}</strong></p>
+                    <p style="margin: 0 0 10px;">${p.proof.metrics}</p>
+                    <a href="${p.proof.url}">Read the full case study →</a>
+                </div>
+            ` : '';
+
+            document.getElementById('package-title').textContent = `${p.title} — ${p.chip}`;
+            document.getElementById('package-lead').textContent = p.summary;
+            document.getElementById('package-meta').innerHTML = `
+                <span><i class="fas fa-tag"></i> <strong>${p.price}</strong> ${p.period}</span>
+                <span><i class="fas fa-chart-line"></i> ${p.tag}</span>
+            `;
+
+            document.getElementById('package-content').innerHTML = `
+                <h2>About this package</h2>
+                <p>${p.lead}</p>
+
+                <h2>${p.includedTitle}</h2>
+                <ul class="package-features" style="grid-template-columns: 1fr;">
+                    ${p.included.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+
+                ${proofBlock}
+
+                <p>All work is 100% manual using our network of high-karma accounts. No bots. No spam. Just sustainable growth and long-term credibility.</p>
+                <p>${p.note}</p>
+
+                <h2>Ready to start?</h2>
+                <p>Choose the <strong>${p.title}</strong> and start building momentum on Reddit this week.</p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="index.html#booking"><i class="far fa-calendar-check"></i> ${p.cta} — book a call</a>
+                    <a class="btn btn-outline" href="mailto:info@redditexperts.com">Email us instead</a>
+                </div>
+                ${otherLink}
+            `;
+        }
+
+        renderPackage(new URLSearchParams(window.location.search).get('id') || 'ads');
+    </script>
+</body>
+
+</html>

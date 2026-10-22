@@ -120,6 +120,9 @@ img { display: block; max-width: 100%; }
 .package-count { display: none; }
 .package-preview-list { padding: 0; }
 .package-preview-item { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+a.package-preview-item { color: inherit; text-decoration: none; transition: border-color .18s ease; }
+a.package-preview-item:hover { border-color: var(--accent); }
+a.package-preview-item:hover strong { color: var(--accent); }
 .package-preview-item strong, .package-preview-item span { display: block; }
 .package-preview-icon { display: none; }
 .package-preview-item strong { font-size: 11px; font-weight: 600; }
