@@ -472,10 +472,81 @@
             });
         }
 
+        // Catalog view (case-study.html without ?id) — keys kept in sync with caseStudies.
+        const catalogRows = {
+            'getroi': {
+                icon: 'fa-chart-line',
+                short: 'GetROI — finance community placement',
+                meta: 'Finance · Copy Trading · 61K views · 247 comments',
+                thumb: '<picture><source srcset="case-study-1.avif" type="image/avif"><img class="service-thumb" src="case-study-1.png" width="936" height="408" alt="GetROI thread in r/fatFIRE" loading="lazy" decoding="async"></picture>'
+            },
+            'srama-5-year': {
+                icon: 'fa-running',
+                short: 'Srama — 5-year credibility story',
+                meta: 'Weight loss · 4.9k upvotes · 309 comments',
+                thumb: '<picture><source srcset="case-study-3-section-1.avif" type="image/avif"><img class="service-thumb" src="case-study-3-section-1.png" width="662" height="828" alt="Srama transformation post" loading="lazy" decoding="async"></picture>'
+            },
+            'beyond-plains': {
+                icon: 'fa-plane',
+                short: 'Beyond the Plains Safaris — travel testimonial',
+                meta: 'Travel · 52 upvotes · Positive comments',
+                thumb: '<picture><source srcset="case-study-4-section-1.avif" type="image/avif"><img class="service-thumb" src="case-study-4-section-1.png" width="554" height="1350" alt="Beyond the Plains Safaris travel testimonial" loading="lazy" decoding="async"></picture>'
+            },
+            'beyond-plains-ads': {
+                icon: 'fa-bullhorn',
+                short: 'Beyond the Plains Safaris — Reddit Ads ROI',
+                meta: 'Paid ads · 471,707 impressions · 135 leads',
+                thumb: '<img class="service-thumb" src="case-study-7-section-2.jpg" width="1538" height="467" alt="Reddit Ads dashboard" loading="lazy" decoding="async">'
+            },
+            'buyers-agency-australia': {
+                icon: 'fa-house',
+                short: 'Buyers Agency Australia — Reddit Ads reach',
+                meta: 'Paid ads · Managed placement · Optimised CTR',
+                thumb: '<img class="service-thumb" src="case-study-8-section-1.jpg" width="1291" height="539" alt="Buyers Agency Australia Ads dashboard" loading="lazy" decoding="async">'
+            },
+            'fitness-app': {
+                icon: 'fa-dumbbell',
+                short: 'Fitness App — 438K-view thread placement',
+                meta: 'Health · 438K views · 107 comments',
+                thumb: '<img class="service-thumb" src="case-study-9-section-3.jpg" width="1600" height="900" alt="438K views snapshot in r/selfimprovement" loading="lazy" decoding="async">'
+            },
+            'budgeting-app': {
+                icon: 'fa-wallet',
+                short: 'Budgeting App — r/personalfinance placement',
+                meta: 'Personal finance · 163-upvote comment',
+                thumb: '<img class="service-thumb" src="case-study-10-section-1.jpg" width="2025" height="1022" alt="r/personalfinance comment thread" loading="lazy" decoding="async">'
+            }
+        };
+
+        function renderCaseIndex() {
+            document.getElementById('case-title').textContent = 'Reddit case studies';
+            document.getElementById('case-lead').textContent = 'Seven campaigns with real numbers. Click any story for the full breakdown.';
+            document.getElementById('case-meta').innerHTML = '';
+
+            const rows = Object.keys(catalogRows).map(function (id) {
+                const entry = catalogRows[id];
+                return `
+                    <a class="service-tile" href="case-study.html?id=${id}">
+                        <i class="fas ${entry.icon} service-icon"></i>
+                        <h3>${entry.short} <span class="catalog-line">${entry.meta}</span></h3>
+                        <div class="service-thumb-container">${entry.thumb}</div>
+                    </a>`;
+            }).join('');
+
+            document.getElementById('case-content').innerHTML = `
+                <p style="margin: 0 0 10px;">Full write-ups: strategy, execution, thread links, and results for every campaign.</p>
+                <div class="catalog-list">
+                    ${rows}
+                </div>
+                <p class="catalog-cta">Want results like these? <a class="btn btn-primary" href="index.html#booking"><i class="far fa-calendar-check"></i> Book a strategy call</a></p>
+            `;
+            document.title = 'Reddit Case Studies — Viko';
+        }
+
         function loadCaseStudy() {
             const caseId = getParameterByName('id');
-            const defaultCaseId = 'getroi';
-            const caseData = caseId ? caseStudies[caseId] : caseStudies[defaultCaseId];
+            if (!caseId) { renderCaseIndex(); return; }
+            const caseData = caseStudies[caseId];
 
             // Old links to retired case studies redirect to their Reddit threads.
             if (!caseData && caseId && retiredThreads[caseId]) {
