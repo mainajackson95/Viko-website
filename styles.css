@@ -60,9 +60,12 @@ img { display: block; max-width: 100%; }
 .logo-text h1 { margin: 0; font: 700 18px/1.1 var(--sans); letter-spacing: -.06em; }
 .logo-text .tagline { display: flex; align-items: center; gap: 5px; margin-top: 4px; color: var(--muted); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
 .tagline i { color: var(--accent); }
-.primary-nav { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 3vw, 38px); }
-.primary-nav a { color: var(--ink-soft); font-size: 14px; font-weight: 600; text-decoration: none; transition: color .16s ease; }
+.primary-nav { flex: 1 1 auto; display: flex; align-items: center; justify-content: space-evenly; gap: clamp(8px, 1vw, 14px); padding-inline: clamp(0px, 1vw, 16px); }
+.primary-nav a { position: relative; padding: 3px 0; color: var(--ink-soft); font-size: 14px; font-weight: 600; text-decoration: none; transition: color .16s ease; }
+.primary-nav a::after { content: ''; position: absolute; left: 0; bottom: -2px; width: 100%; height: 2px; border-radius: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left center; transition: transform .22s ease; }
 .primary-nav a:hover { color: var(--accent); }
+.primary-nav a:hover::after, .primary-nav a[aria-current="page"]::after { transform: scaleX(1); }
+.primary-nav a[aria-current="page"] { color: var(--accent); }
 .header-actions { display: flex; flex: 0 0 auto; align-items: center; gap: 13px; }
 
 .btn {
@@ -317,7 +320,7 @@ body.thankyou-page { display: flex; min-height: 100vh; align-items: center; just
     .header-inner { min-height: 65px; flex-wrap: wrap; gap: 0 12px; padding-block: 9px; }
     .logo-icon { font-size: 29px; }
     .logo-text h1 { font-size: 16px; }
-    .primary-nav { order: 3; flex: 1 0 100%; justify-content: space-between; gap: 7px; padding-top: 9px; border-top: 1px solid var(--line); }
+    .primary-nav { order: 3; flex: 1 0 100%; justify-content: space-between; gap: 7px; padding-inline: 0; padding-top: 9px; border-top: 1px solid var(--line); }
     .primary-nav a { font-size: 12.5px; white-space: nowrap; }
     .header-actions { margin-left: auto; }
     .header-actions .btn { min-height: 35px; padding: 7px 10px; font-size: 12px; white-space: nowrap; }
