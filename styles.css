@@ -162,7 +162,7 @@ main > section { scroll-margin-top: 88px; }
 .why-card p { grid-column: auto; }
 
 .packages-section { border-block: 1px solid var(--line); background: var(--paper-deep); }
-.packages-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 31px; border-top: 1px solid var(--line-strong); }
+.packages-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); margin-top: 31px; border-top: 1px solid var(--line-strong); }
 .package-card { display: flex; flex-direction: column; padding: 23px 24px 18px 0; border: 0; border-radius: 0; border-top: 3px solid transparent; background: transparent; box-shadow: none; }
 .package-card + .package-card { padding-left: 24px; border-left: 1px solid var(--line); }
 .package-card.featured { border-color: var(--accent); background: transparent; box-shadow: none; }

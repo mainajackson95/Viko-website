@@ -60,92 +60,7 @@
         </section>
 
         <section class="container">
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <i class="fab fa-reddit-alien"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-clock"></i> 5 min read</span>
-                            <span><i class="fas fa-arrow-up"></i> 342 upvotes</span>
-                        </div>
-                        <h3>Reddit karma in 2025: why authority matters more than ever</h3>
-                        <p>How Reddit's algorithm changes affect brand visibility and what to do about it.</p>
-                        <a href="blog-post.html?id=blog-1" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-clock"></i> 6 min read</span>
-                            <span><i class="fas fa-comments"></i> 128 comments</span>
-                        </div>
-                        <h3>How to build Reddit authority without direct promotions</h3>
-                        <p>Practical strategies for organic community growth and long-term karma gains.</p>
-                        <a href="blog-post.html?id=blog-2" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-clock"></i> 7 min read</span>
-                            <span><i class="fas fa-chart-line"></i> 76% growth</span>
-                        </div>
-                        <h3>Reddit content funnels: turning posts into qualified leads</h3>
-                        <p>How to design campaigns that convert community engagement into business results.</p>
-                        <a href="blog-post.html?id=blog-3" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-clock"></i> 8 min read</span>
-                            <span><i class="fas fa-robot"></i> AI insights</span>
-                        </div>
-                        <h3>AI SEO for Reddit: optimizing content for LLM indexing</h3>
-                        <p>How to structure your Reddit posts for better AI search visibility.</p>
-                        <a href="blog-post.html?id=blog-4" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-clock"></i> 6 min read</span>
-                            <span><i class="fas fa-users"></i> Community</span>
-                        </div>
-                        <h3>Building community trust: the foundation of Reddit marketing</h3>
-                        <p>Why authentic engagement beats paid promotion every time.</p>
-                        <a href="blog-post.html?id=blog-5" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-clock"></i> 9 min read</span>
-                            <span><i class="fas fa-lock"></i> Reputation</span>
-                        </div>
-                        <h3>Reputation management on Reddit: crisis prevention and recovery</h3>
-                        <p>How to protect and rebuild your brand's online reputation.</p>
-                        <a href="blog-post.html?id=blog-6" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
+            <div class="blog-grid" id="insights-grid"></div>
         </section>
     </main>
 
@@ -154,6 +69,27 @@
             <p>© 2026 Viko Marketing Agency. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Articles come from insights.js — that file is where you add, edit, or delete articles. -->
+    <script src="insights.js"></script>
+    <script>
+        document.getElementById('insights-grid').innerHTML = INSIGHTS.map(post => `
+            <div class="blog-card">
+                <div class="blog-image">
+                    <i class="${post.icon}"></i>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><i class="far fa-clock"></i> ${post.readTime}</span>
+                        <span><i class="${post.badgeIcon}"></i> ${post.badge}</span>
+                    </div>
+                    <h3>${post.title}</h3>
+                    <p>${post.description}</p>
+                    <a href="blog-post.html?id=${post.id}" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        `).join('');
+    </script>
 </body>
 
 </html>

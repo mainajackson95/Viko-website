@@ -71,103 +71,16 @@
         </div>
     </footer>
 
+    <!-- Articles come from insights.js — that file is where you add, edit, or delete articles. -->
+    <script src="insights.js"></script>
     <script>
-        const posts = {
-            'blog-1': {
-                title: 'Reddit karma in 2025: why authority matters more than ever',
-                description: 'How Reddit’s algorithm changes affect brand visibility and what to do about it.',
-                date: 'May 10, 2026',
-                readTime: '5 min read',
-                content: `
-                    <p><strong>The Reddit ecosystem has changed.</strong> In 2025, karma and account history are now strong signals that decide whether your content lands in front of a community or gets filtered out.</p>
-                    <p>Brands that treat Reddit as a long-term community channel are winning. Short-term self-promotion gets buried fast, while authority-based storytelling continues to surface.</p>
-                    <img src="case-study-1.png" alt="Reddit authority campaign snapshot">
-                    <h2>What actually matters now</h2>
-                    <p>Top-performing Reddit posts share three traits:</p>
-                    <ul>
-                        <li>True relevance to the subreddit</li>
-                        <li>High-value comments and follow-up engagement</li>
-                        <li>Author credibility built over time</li>
-                    </ul>
-                    <h2>How to use this for your brand</h2>
-                    <p>Start by mapping out the communities your audience already trusts. Create a posting cadence that prioritizes helpful guides, not ads. Then, layer in subtle brand mentions after trust is established.</p>
-                `
-            },
-            'blog-2': {
-                title: 'How to build Reddit authority without direct promotions',
-                description: 'Practical strategies for organic community growth and long-term karma gains.',
-                date: 'April 22, 2026',
-                readTime: '6 min read',
-                content: `
-                    <p>Direct promotion is rarely welcomed on Reddit. The smarter approach is to earn authority through value-first contributions.</p>
-                    <h2>Authority checklist</h2>
-                    <ul>
-                        <li>Respond to questions with real answers</li>
-                        <li>Share case studies without overt selling</li>
-                        <li>Use comments to help, not to pitch</li>
-                    </ul>
-                    <p>This is the content style that builds trust and drives better long-term results.</p>
-                `
-            },
-            'blog-3': {
-                title: 'Reddit content funnels: turning posts into qualified leads',
-                description: 'How to design campaigns that convert community engagement into business results.',
-                date: 'March 30, 2026',
-                readTime: '7 min read',
-                content: `
-                    <p>Reddit content can be the top of a funnel when it’s designed to educate first, then invite conversation.</p>
-                    <h2>Funnel stages</h2>
-                    <ol>
-                        <li>Awareness: a high-value post that solves a problem</li>
-                        <li>Interest: comments that answer follow-up questions</li>
-                        <li>Consideration: private messages or site visits driven by trust</li>
-                    </ol>
-                    <p>This process works best when the brand avoids hard selling and focuses on community value.</p>
-                `
-            },
-            'blog-4': {
-                title: 'AI SEO for Reddit: optimizing content for LLM indexing',
-                description: 'How to structure your Reddit posts for better AI search visibility.',
-                date: 'February 18, 2026',
-                readTime: '8 min read',
-                content: `
-                    <p>AI search now indexes Reddit content more aggressively. Posts that answer questions clearly are more likely to be surfaced.</p>
-                    <h2>Best practice</h2>
-                    <p>Use concise headings and write responses that can be read independently of the comments thread.</p>
-                    <img src="case-study-6.png" alt="AI SEO Reddit campaign snapshot">
-                `
-            },
-            'blog-5': {
-                title: 'Building community trust: the foundation of Reddit marketing',
-                description: 'Why authentic engagement beats paid promotion every time.',
-                date: 'January 10, 2026',
-                readTime: '6 min read',
-                content: `
-                    <p>Trust is the most valuable currency on Reddit. Without it, even great content will fail.</p>
-                    <h2>What trust looks like</h2>
-                    <p>Authentic accounts, consistent activity, and real problem solving.</p>
-                `
-            },
-            'blog-6': {
-                title: 'Reputation management on Reddit: crisis prevention and recovery',
-                description: 'How to protect and rebuild your brand’s online reputation.',
-                date: 'December 5, 2025',
-                readTime: '9 min read',
-                content: `
-                    <p>Reddit communities can turn quickly. The best defense is proactive reputation management.</p>
-                    <h2>Recovery plan</h2>
-                    <p>Respond transparently, own mistakes, and continue providing value.</p>
-                `
-            }
-        };
-
         function getQueryParam(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
         }
 
         const postId = getQueryParam('id') || 'blog-1';
-        const post = posts[postId];
+        const post = INSIGHTS.find(item => item.id === postId);
 
         const titleEl = document.getElementById('post-title');
         const descriptionEl = document.getElementById('post-description');
@@ -175,7 +88,6 @@
         const contentEl = document.getElementById('post-content');
         const imageSizes = {
             'case-study-1.png': [936, 408],
-            'case-study-6.png': [936, 474],
         };
 
         function optimizeImages(html) {
