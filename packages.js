@@ -53,5 +53,27 @@ const PACKAGES = {
         proof: null,
         note: 'Perfect for SaaS, Fintech, health and wellness, travel, and service brands looking for steady organic presence and AI-powered visibility.',
         cta: 'Start the Organic Growth Engine'
+    },
+    ambassador: {
+        id: 'ambassador',
+        title: 'Reddit Ambassador Program',
+        price: '$85',
+        period: '/ week',
+        tag: 'Official brand account, professionally managed',
+        chip: 'Brand voice',
+        summary: 'We run an official Reddit account for your brand and act as your professional, transparent voice in the communities that matter.',
+        lead: 'Own the conversation with a real, named presence. We take over your official branded Reddit account and represent you in the communities that matter — joining discussions, answering questions, and speaking transparently as your brand. Customers get a professional voice they can talk to directly.',
+        includedTitle: 'What’s included with your account',
+        included: [
+            'Official branded account managed on your behalf',
+            'Active participation in relevant subreddits',
+            'Open, helpful advice given as a brand representative',
+            'Replies to mentions, questions, and brand-related threads',
+            'Drafts shared with you for review before posting',
+            'Monthly summary of conversations, sentiment, and insights'
+        ],
+        proof: null,
+        note: 'Perfect for brands that want a permanent, transparent home on Reddit — a professional, accountable voice rather than anonymous promotion.',
+        cta: 'Start the Reddit Ambassador Program'
     }
 };

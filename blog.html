@@ -39,7 +39,7 @@
             <nav class="primary-nav" aria-label="Main navigation">
                 <a href="index.html">Home</a>
                 <a href="index.html#capabilities">Services</a>
-                <a href="index.html#services">Case studies</a>
+                <a href="case-study.html">Case studies</a>
                 <a href="blog.html">Insights</a>
             </nav>
             <div class="header-actions">
@@ -61,7 +61,8 @@
         </section>
 
         <section class="container">
-            <div class="blog-grid" id="insights-grid"></div>
+            <div class="catalog-list" id="insights-grid"></div>
+            <p class="catalog-cta">Want these strategies working for your brand? <a class="btn btn-primary" href="index.html#booking"><i class="far fa-calendar-check"></i> Book a strategy call</a></p>
         </section>
     </main>
 
@@ -75,20 +76,11 @@
     <script src="insights.js"></script>
     <script>
         document.getElementById('insights-grid').innerHTML = INSIGHTS.map(post => `
-            <div class="blog-card">
-                <div class="blog-image">
-                    <i class="${post.icon}"></i>
-                </div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span><i class="far fa-clock"></i> ${post.readTime}</span>
-                        <span><i class="${post.badgeIcon}"></i> ${post.badge}</span>
-                    </div>
-                    <h3>${post.title}</h3>
-                    <p>${post.description}</p>
-                    <a href="blog-post.html?id=${post.id}" class="read-more">Read more <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+            <a class="service-tile" href="blog-post.html?id=${post.id}">
+                <i class="${post.badgeIcon} service-icon"></i>
+                <h3>${post.title} <span class="catalog-line">${post.date} · ${post.readTime} · ${post.badge}</span></h3>
+                <div class="service-thumb-container"><div class="blog-image"><i class="${post.icon}"></i></div></div>
+            </a>
         `).join('');
     </script>
 </body>

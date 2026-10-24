@@ -5,7 +5,7 @@
         'index.html': 'index.html',
         'service.html': 'index.html#capabilities',
         'package.html': 'index.html#capabilities',
-        'case-study.html': 'index.html#services',
+        'case-study.html': 'case-study.html',
         'blog.html': 'blog.html',
         'blog-post.html': 'blog.html'
     };
