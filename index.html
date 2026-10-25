@@ -459,6 +459,12 @@
                             <label for="message">Tell us about your project...</label>
                         </div>
                     </div>
+                    <div style="display: flex; justify-content: center; margin-top: 14px;">
+                        <label for="consent" style="display: flex; gap: 9px; align-items: flex-start; max-width: 520px; color: var(--muted); font-size: 14px; line-height: 1.5; cursor: pointer;">
+                            <input type="checkbox" id="consent" required style="margin-top: 3px; width: 16px; height: 16px; flex: 0 0 auto; accent-color: var(--accent);">
+                            <span>I have read and agree to the <a href="terms.html">Terms and Conditions</a> and the <a href="privacy.html">Privacy Policy</a>.</span>
+                        </label>
+                    </div>
                     <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px;">
                         <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send
                             message</button>
@@ -493,7 +499,7 @@
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 26px; color: var(--viko-meta);">
-                    © 2026 Viko Marketing Agency. All rights reserved.
+                    © 2026 Viko Marketing Agency. All rights reserved. · <a href="terms.html">Terms and Conditions</a> · <a href="privacy.html">Privacy Policy</a>
                 </div>
             </div>
         </footer>
@@ -602,6 +608,8 @@
         if (formWaBtn) {
             formWaBtn.addEventListener('click', function (e) {
                 e.preventDefault();
+                const consent = document.getElementById('consent');
+                if (consent && !consent.reportValidity()) return;
                 const name = document.getElementById('name').value.trim();
                 const message = document.getElementById('message').value.trim();
 
